@@ -78,7 +78,7 @@ function trail(){
    document.body.removeChild(el);
 	
 	
-	document.getElementById('password1').innerHTML 
+	document.getElementById('password1').value
                 = r;
 				
 
@@ -119,7 +119,7 @@ function insert(){
 	
 	var website= document.getElementById("website1").value;
 	var username1=document.getElementById("user1").value;
-	var pass=document.getElementById("password1").textContent;
+	var pass=document.getElementById("password1").value;
 	var email= document.getElementById("email1").value;
 	console.log( pass);
 	db.collection("password").add({
