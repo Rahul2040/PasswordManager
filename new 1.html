@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<title> Firebase Firestore Trail </title>
+	</head>
+	<body>
+	  <div class="main-form">
+	  <h3> INSERTING MENU</h3>
+	  <label for="fname" id="website">WEBSITE:        </label>
+	  <input type="text" id="website1" placeholder=""><br>
+	  	  <label for="fname" id="user">USERNAME:        </label>
+	  <input type="text" id="user1" placeholder=""><br>
+	  	  <label for="fname" id="email">REGISTERED EMAIL:      </label>
+	  <input type="text" id="email1" placeholder=""><br>
+	  	  <label for="fname" id="password">PASSWORD:</label>
+	  <label for="fname" id="password1"></label>
+	  <button id="proceed" onclick="trail()"> GENERATE PASSWORD</button><br>
+	  <button id="proceed" onclick="insert()"> INSERT INTO FIREBASE</button><br>
+	  <br><br><br>
+	  <h3> SEARCH</h3>
+	  <label for="fname" id="web">WEBSITE:        </label>
+	  <input type="text" id="web1" placeholder=""><br>
+	  <button id="proceed" onclick="search()"> GET DETAILS</button><br>
+	  <label for="fname" id="pass1"> </label>
+	  <br><br><br>
+	  <h3> Delete</h3>
+	  <label for="fname" id="web2">Enter the number to be deleted:        </label>
+	  <input type="text" id="web21" placeholder=""><br>
+	  <button id="proceed" onclick="delete1()">DELETE</button><br>
+	
+	  
+	  
+	  
+	  
+	  </div>
+	 <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCzSFkv5s21e6zWjKaB8eKtDDDD_n3EJ3c",
+    authDomain: "nepoobday.firebaseapp.com",
+    databaseURL: "https://nepoobday.firebaseio.com",
+    projectId: "nepoobday",
+    storageBucket: "nepoobday.appspot.com",
+    messagingSenderId: "128044228078",
+    appId: "1:128044228078:web:951832e9739df7afc602ff",
+    measurementId: "G-THJ7SZYRR6"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<script src="index.js"></script>
+</body>
+</html>
