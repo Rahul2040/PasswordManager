@@ -1,5 +1,6 @@
 var db = firebase.firestore();
 var doc1=[];
+var passarr=[];
 class City {
     constructor (website, username, password1,email ) {
         this.website = website;
@@ -84,7 +85,7 @@ function trail(){
 
 	 
 }
-function delete1(){
+/*function delete1(){
 	var web11=document.getElementById("web21").value;
 	if(doc1.length===0){
 		
@@ -113,6 +114,36 @@ function delete1(){
 		}
 	}
 	search();
+}*/
+function delete1(){
+	console.log("inside copycat");
+	var flag=0;
+	 const rbs = document.querySelectorAll('input[name="password"]');
+            let selectedValue;
+            for (const rb of rbs) {
+                if (rb.checked) {
+                    selectedValue = rb.value;
+					flag=1;
+                    break;
+                }
+            }
+           if(flag===0){
+			   alert("You havent choosen any entry to Delete from the database!!!");
+		   }
+		   else{
+			   if (window.confirm("Do you want to proceed with the deletion")) {
+				   console.log(doc1[selectedValue]);
+  			db.collection("password").doc(doc1[selectedValue]).delete().then(function() {
+			window.alert("Document successfully deleted!");
+			}).catch(function(error) {
+					window.alert("Deletion wasnt successfull Please try again!!!");
+				});
+            } 
+			else {
+                     txt = "You pressed Cancel!";
+            }
+		   }
+		   search();
 }
 function insert(){
 	
@@ -139,12 +170,44 @@ function insert(){
 });
 }
 
-
+function copycat(){
+	console.log("inside copycat");
+	var flag=0;
+	 const rbs = document.querySelectorAll('input[name="password"]');
+            let selectedValue;
+            for (const rb of rbs) {
+                if (rb.checked) {
+                    selectedValue = rb.value;
+					flag=1;
+                    break;
+                }
+            }
+           if(flag===0){
+			   alert("You havent choosen any password to copy to clipboard");
+		   }
+		   else{
+			   var el = document.createElement('textarea');
+   // Set value (string to be copied)
+   el.value = passarr[selectedValue];
+   // Set non-editable to avoid focus and move outside of view
+   el.setAttribute('readonly', '');
+   el.style = {position: 'absolute', left: '-9999px'};
+   document.body.appendChild(el);
+   // Select text inside element
+   el.select();
+   // Copy text to clipboard
+   document.execCommand('copy');
+   // Remove temporary element
+   document.body.removeChild(el);
+		   }
+	return;
+}
 
 function search(){
 	console.log("ITs in the search")
 	
 	doc1=[];
+	passarr=[];
 	var web11=document.getElementById("web1").value;
 	console.log(web11);
 	db.collection("password").where("website","==",web11)
@@ -156,15 +219,17 @@ function search(){
         querySnapshot.forEach(function(doc) {
             // doc.data() is never undefined for query doc snapshots
 			a=doc.data();
-			r+=(count+1).toString()+") <br>";
+			r+="<input type='radio' name='password' value='"+count+"'>";
             r+=a.toString()+"<br><br><br>";
-		    console.log(doc.id, " => ", a.toString());
+		    console.log(doc.id, " => ", a.password1);
 			doc1.push(doc.id);
+			passarr.push(a.password1);
 			count++;
         });
 		
 		if(count===0)  {document.getElementById("pass1").innerHTML= "Invaild Website";}
 		else if(count>0){
+			r+="<br><button id='cclip' onclick='copycat()'>Copy the selected password</button>"
 			document.getElementById("pass1").innerHTML=r;
 		}
     })
