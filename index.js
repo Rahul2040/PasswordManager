@@ -89,8 +89,14 @@ function trail(){
 function delete1(){
 	console.log("inside copycat");
 	var flag=0;
+	var selectedValue;
+	if(doc1.length===1){
+		selectedValue=0;
+		flag=1;
+	}
+	else{
 	 const rbs = document.querySelectorAll('input[name="password"]');
-            let selectedValue;
+            
             for (const rb of rbs) {
                 if (rb.checked) {
                     selectedValue = rb.value;
@@ -98,6 +104,7 @@ function delete1(){
                     break;
                 }
             }
+	}
            if(flag===0){
 			   alert("You havent choosen any entry to Delete from the database!!!");
 		   }
@@ -115,6 +122,7 @@ function delete1(){
             }
 		   }
 		   search();
+		   console.log("after search call");
 }
 function insert(){
 	
@@ -143,9 +151,16 @@ function insert(){
 
 function copycat(){
 	console.log("inside copycat");
-	var flag=0;
+	 var selectedValue;
+	 var flag=0;
+	if(passarr.length===1){
+		selectedValue=0;
+		flag=1;
+	}
+	else{
+	
 	 const rbs = document.querySelectorAll('input[name="password"]');
-            let selectedValue;
+           
             for (const rb of rbs) {
                 if (rb.checked) {
                     selectedValue = rb.value;
@@ -153,6 +168,7 @@ function copycat(){
                     break;
                 }
             }
+	}
            if(flag===0){
 			   alert("You havent choosen any password to copy to clipboard");
 		   }
@@ -170,6 +186,7 @@ function copycat(){
    document.execCommand('copy');
    // Remove temporary element
    document.body.removeChild(el);
+   alert("Password has been copied to Clipboard!!");
 		   }
 	return;
 }
