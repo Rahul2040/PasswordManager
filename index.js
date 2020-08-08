@@ -85,36 +85,7 @@ function trail(){
 
 	 
 }
-/*function delete1(){
-	var web11=document.getElementById("web21").value;
-	if(doc1.length===0){
-		
-		window.alert("You have searched anything to delete!!!!");
-	}
-	else{
-		console.log(web11);
-		if(web11==='' ||parseInt(web11)<1 || parseInt(web11)>doc1.length ){
-		
-		window.alert("Please Enter a proper value!!!");
-		}
-		else{
-			console.log("sucess");
-			console.log(doc1[parseInt(web11)-1]);
-			if (window.confirm("Do you want to proceed with the deletion")) {
-  			db.collection("password").doc(doc1[parseInt(web11)-1]).delete().then(function() {
-			window.alert("Document successfully deleted!");
-			}).catch(function(error) {
-					window.alert("Deletion wasnt successfull Please try again!!!");
-				});
-            } 
-			else {
-                     txt = "You pressed Cancel!";
-            }
-			
-		}
-	}
-	search();
-}*/
+
 function delete1(){
 	console.log("inside copycat");
 	var flag=0;
